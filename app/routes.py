@@ -48,8 +48,7 @@ def display():
     alarms = db.session.query(Signals).all()
     if request.method == 'POST':
         if 'index' in request.form:
-            index = request.form['index']
-            dalarm = db.session.query(Signals).filter(Signals.id == int(index)).first()
+            dalarm = db.session.query(Signals).filter(Signals.id == int(request.form['index'])).first()
             dalarm.status = 'done'
             db.session.add(dalarm)
             db.session.commit()
@@ -74,7 +73,6 @@ def done_display():
             for alarm in alarms:
                 db.session.delete(alarm)
                 db.session.commit()
-                # alarms = db.session.query(Signals).all()
             return render_template('done_display.html', alarms=alarms, title='d0ne display')
     elif request.method == 'GET':
         return render_template('done_display.html', alarms=alarms, title='d0ne display')
