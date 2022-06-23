@@ -7,7 +7,7 @@
   ],
   "repository": "https://github.com/AlienExists/ward_alarm",
   "scripts": {
-    "postdeploy": "python -c 'from app import db; db.create_all()'"
+    "postdeploy": "python db_create.py"
   },
   "addons": [
     "heroku-postgresql"
