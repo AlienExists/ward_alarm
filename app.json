@@ -1,0 +1,15 @@
+{
+  "name": "Ward alarm",
+  "description": "Ward alarm for hospital",
+  "keywords": [
+    "flask",
+    "python"
+  ],
+  "repository": "https://github.com/AlienExists/ward_alarm",
+  "scripts": {
+    "postdeploy": "python db_create.py"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
